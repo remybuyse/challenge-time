@@ -3,7 +3,7 @@ var bid = {
    * Properties
    */
   seconds: 10,
-  maxBid: 0,
+  maxBid: 15,
 
   /*
    * Init
@@ -41,7 +41,6 @@ var bid = {
     var counter = document.getElementById('counter');
     counter.textContent = bid.seconds;
 
-
   },
 
   /*
@@ -53,16 +52,17 @@ var bid = {
   	event.preventDefault();
 
   	// Je récupére l'input
-  	var value = document.getElementById('bid-best');
+  	var bidBest = document.getElementById('bid-best');
     // Est-ce supérieur à l'enchère en cours ?
-		//if(value > bid.maxBid){
+		if(bidBest.value > bid.maxBid){
 				// Cette valeur devient l'enchère principal
-				bid.maxBid = value;
+				bid.maxBid = bidBest.value;
 				// On met à jour le DOM
-				value.textContent = bid.maxBid;
-		//}
-      // On remet le compteur à 0
-		//	bid.seconds = 10;
+				bidBest.textContent = bid.maxBid;
+				// On remet le compteur à 0
+				bid.seconds = 11;
+		}
+
   }
 };
 
