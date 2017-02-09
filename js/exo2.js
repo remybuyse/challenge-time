@@ -3,7 +3,7 @@ var bid = {
    * Properties
    */
   seconds: 10,
-  maxBid: 15,
+  maxBid: 0,
 
   /*
    * Init
@@ -13,9 +13,9 @@ var bid = {
 
     // Au bout d'une seconde, décremente-moi le compteur
     // setTimeout(bid.decrement, 1000);
-
     // Toutes les secondes, décremente-moi le compteur
     setInterval(bid.decrement, 1000);
+
 
     // On écoute la soumission du formulaire
 		var buttonOk = document.getElementById('ok');
@@ -35,12 +35,17 @@ var bid = {
    * On décrémente
    */
   decrement: function() {
-    bid.seconds--;
 
-    // Counter
-    var counter = document.getElementById('counter');
-    counter.textContent = bid.seconds;
+		if(bid.seconds>0){
+			bid.seconds--;
+		}
+		else {
+			alert("L'enchère est terminée !");
+		}
 
+		  // Counter
+	    var counter = document.getElementById('counter');
+	    counter.textContent = bid.seconds;
   },
 
   /*
@@ -52,15 +57,16 @@ var bid = {
   	event.preventDefault();
 
   	// Je récupére l'input
-  	var bidBest = document.getElementById('bid-best');
+  	var bidBest = document.getElementById('amount');
 		var value = parseInt(bidBest.value, 10);
+		var change = document.getElementById('bid-best');
 
     // Est-ce supérieur à l'enchère en cours ?
-		if( bidBest.value > bid.maxBid){
+		if( value > bid.maxBid){
 				// Cette valeur devient l'enchère principal
 				bid.maxBid = value;
 				// On met à jour le DOM
-				bidBest.textContent = bid.maxBid;
+				change.textContent = bid.maxBid;
 				// On remet le compteur à 0
 				bid.seconds = 11;
 		}
