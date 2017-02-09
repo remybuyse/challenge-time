@@ -53,10 +53,12 @@ var bid = {
 
   	// Je récupére l'input
   	var bidBest = document.getElementById('bid-best');
+		var value = parseInt(bidBest.value, 10);
+
     // Est-ce supérieur à l'enchère en cours ?
-		if(bidBest.value > bid.maxBid){
+		if( bidBest.value > bid.maxBid){
 				// Cette valeur devient l'enchère principal
-				bid.maxBid = bidBest.value;
+				bid.maxBid = value;
 				// On met à jour le DOM
 				bidBest.textContent = bid.maxBid;
 				// On remet le compteur à 0
