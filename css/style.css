@@ -1,4 +1,7 @@
-#counter {
+body {
 	text-align: center;
+}
+
+#counter {
 	margin: 100px;
 }
