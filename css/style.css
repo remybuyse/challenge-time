@@ -1,7 +1,54 @@
-body {
+/*
+ * Exo 1
+ */
+/*body {
 	text-align: center;
 }
 
 #counter {
 	margin: 100px;
+}*/
+
+/*
+ * Exo 2
+ */
+#bid {
+	width: 600px;
+	margin: 50px auto;
+	font-size: 2em;
+}
+
+#bid-best {
+	float: left;
+}
+/* Nouveauté : les pseudos-éléments ::before / ::after */
+#bid-best::after {
+	content: " €";
+}
+
+#counter {
+	float: right;
+}
+
+#form {
+	padding-top: 100px;
+	width: 300px;
+	margin: auto;
+}
+
+#amount {
+	border: 1px solid #ccc;
+	padding: 7px 12px;
+	float: left;
+	height: 40px;
+	width: 260px;
+}
+
+#form button {
+	float: left;
+	height: 40px;
+	width: 40px;
+	background: #000;
+	color: #fff;
+	border: 0;
 }
